@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.humanbooster.tedi.projetpremier;
 
 import static org.junit.Assert.assertEquals;
@@ -19,7 +20,7 @@ public class testweb {
 	private WebDriver driver;
 	private String baseUrl;
 	private boolean acceptNextAlert = true;
-	private StringBuffer verificationErrors = new StringBuffer();
+	private final StringBuffer verificationErrors = new StringBuffer();
 
 	@Before
 	public void setUp() throws Exception {
@@ -43,17 +44,17 @@ public class testweb {
 	@After
 	public void tearDown() throws Exception {
 		driver.quit();
-		String verificationErrorString = verificationErrors.toString();
+		final String verificationErrorString = verificationErrors.toString();
 		if (!"".equals(verificationErrorString)) {
 			fail(verificationErrorString);
 		}
 	}
 
-	private boolean isElementPresent(By by) {
+	private boolean isElementPresent(final By by) {
 		try {
 			driver.findElement(by);
 			return true;
-		} catch (NoSuchElementException e) {
+		} catch (final NoSuchElementException e) {
 			return false;
 		}
 	}
@@ -62,15 +63,15 @@ public class testweb {
 		try {
 			driver.switchTo().alert();
 			return true;
-		} catch (NoAlertPresentException e) {
+		} catch (final NoAlertPresentException e) {
 			return false;
 		}
 	}
 
 	private String closeAlertAndGetItsText() {
 		try {
-			Alert alert = driver.switchTo().alert();
-			String alertText = alert.getText();
+			final Alert alert = driver.switchTo().alert();
+			final String alertText = alert.getText();
 			if (acceptNextAlert) {
 				alert.accept();
 			} else {
@@ -82,3 +83,89 @@ public class testweb {
 		}
 	}
 }
+=======
+package com.humanbooster.tedi.projetpremier;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class testweb {
+	private WebDriver driver;
+	private String baseUrl;
+	private boolean acceptNextAlert = true;
+	private final StringBuffer verificationErrors = new StringBuffer();
+
+	@Before
+	public void setUp() throws Exception {
+		driver = new FirefoxDriver();
+		baseUrl = "http://docs.seleniumhq.org/";
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	}
+
+	@Test
+	public void testWeb() throws Exception {
+		driver.get(baseUrl + "/docs/");
+		driver.findElement(By.linkText("Test Automation for Web Applications"))
+				.click();
+		assertEquals(
+				"The Documentation Team–Authors Past and Present",
+				driver.findElement(
+						By.linkText("The Documentation Team–Authors Past and Present"))
+						.getText());
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		driver.quit();
+		final String verificationErrorString = verificationErrors.toString();
+		if (!"".equals(verificationErrorString)) {
+			fail(verificationErrorString);
+		}
+	}
+
+	private boolean isElementPresent(final By by) {
+		try {
+			driver.findElement(by);
+			return true;
+		} catch (final NoSuchElementException e) {
+			return false;
+		}
+	}
+
+	private boolean isAlertPresent() {
+		try {
+			driver.switchTo().alert();
+			return true;
+		} catch (final NoAlertPresentException e) {
+			return false;
+		}
+	}
+
+	private String closeAlertAndGetItsText() {
+		try {
+			final Alert alert = driver.switchTo().alert();
+			final String alertText = alert.getText();
+			if (acceptNextAlert) {
+				alert.accept();
+			} else {
+				alert.dismiss();
+			}
+			return alertText;
+		} finally {
+			acceptNextAlert = true;
+		}
+	}
+}
+>>>>>>> branch 'master' of git@192.168.11.205:/opt/git/manijawi.git
