@@ -10,4 +10,8 @@ public class App {
 		System.out.println("travail sur ma branche de travail");
 		System.out.println("etghd");
 	}
+
+	public class test {
+
+	}
 }
