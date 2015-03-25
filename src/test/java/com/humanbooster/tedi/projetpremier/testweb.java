@@ -6,6 +6,7 @@ import static org.junit.Assert.fail;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -31,7 +32,7 @@ public class testweb {
 	public void testWeb() throws Exception {
 		driver.get(baseUrl + "/docs/");
 		driver.findElement(By.linkText("Test Automation for Web Applications"))
-				.click();
+		.click();
 		assertEquals(
 				"The Documentation Team–Authors Past and Present",
 				driver.findElement(
