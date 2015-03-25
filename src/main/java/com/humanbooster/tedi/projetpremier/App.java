@@ -1,6 +1,15 @@
 package com.humanbooster.tedi.projetpremier;
 
 /**
+<<<<<<< HEAD
+ * Hello world! manijawi
+ */
+public class App {
+	public static void main(String[] args) {
+		System.out.println("Hello World!");
+		System.out.println("To be, or not to be? That is the question.");
+	}
+=======
  * Hello world!
  *
  */
@@ -15,4 +24,5 @@ public class App {
 
 	}
 
+>>>>>>> branch 'master' of git@192.168.11.205:/opt/git/manijawi.git
 }
