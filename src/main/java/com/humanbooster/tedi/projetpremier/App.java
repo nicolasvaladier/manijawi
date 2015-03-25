@@ -1,8 +1,7 @@
 package com.humanbooster.tedi.projetpremier;
 
 /**
- * Hello world!
- *
+ * Hello world! manijawi
  */
 public class App {
 	public static void main(String[] args) {
