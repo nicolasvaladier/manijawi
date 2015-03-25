@@ -19,7 +19,7 @@ public class testweb {
 	private WebDriver driver;
 	private String baseUrl;
 	private boolean acceptNextAlert = true;
-	private StringBuffer verificationErrors = new StringBuffer();
+	private final StringBuffer verificationErrors = new StringBuffer();
 
 	@Before
 	public void setUp() throws Exception {
@@ -43,17 +43,17 @@ public class testweb {
 	@After
 	public void tearDown() throws Exception {
 		driver.quit();
-		String verificationErrorString = verificationErrors.toString();
+		final String verificationErrorString = verificationErrors.toString();
 		if (!"".equals(verificationErrorString)) {
 			fail(verificationErrorString);
 		}
 	}
 
-	private boolean isElementPresent(By by) {
+	private boolean isElementPresent(final By by) {
 		try {
 			driver.findElement(by);
 			return true;
-		} catch (NoSuchElementException e) {
+		} catch (final NoSuchElementException e) {
 			return false;
 		}
 	}
@@ -62,15 +62,15 @@ public class testweb {
 		try {
 			driver.switchTo().alert();
 			return true;
-		} catch (NoAlertPresentException e) {
+		} catch (final NoAlertPresentException e) {
 			return false;
 		}
 	}
 
 	private String closeAlertAndGetItsText() {
 		try {
-			Alert alert = driver.switchTo().alert();
-			String alertText = alert.getText();
+			final Alert alert = driver.switchTo().alert();
+			final String alertText = alert.getText();
 			if (acceptNextAlert) {
 				alert.accept();
 			} else {
