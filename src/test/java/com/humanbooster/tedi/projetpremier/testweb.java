@@ -32,7 +32,7 @@ public class testweb {
 	public void testWeb() throws Exception {
 		driver.get(baseUrl + "/docs/");
 		driver.findElement(By.linkText("Test Automation for Web Applications"))
-		.click();
+				.click();
 		assertEquals(
 				"The Documentation Team–Authors Past and Present",
 				driver.findElement(
